@@ -199,7 +199,9 @@ fn handlebars() -> HandlebarsEngine {
 }
 
 fn main() {
-    let config = Configuration::load("config.toml".into()).unwrap();
+    use std::env::args;
+    let config_filepath = args().nth(1).unwrap_or("config.toml".into());
+    let config = Configuration::load(config_filepath.into()).unwrap();
 
     let hbse = handlebars();
 

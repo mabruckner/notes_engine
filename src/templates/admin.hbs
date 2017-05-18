@@ -1,0 +1,94 @@
+{{#*inline "page"}}
+<h1 class="title is-1">Administration</h1>
+{{#if user}}<h3 class="subtitle is-3">logged in as <strong>{{user}}</strong></h1>{{/if}}
+<div class="card">
+<header class="card-header">
+<p class="card-header-title">login</p>
+</header>
+<div class="card-content">
+<div class="content">
+<form action="/admin/login" method="POST">
+<div class="field">
+<input class="input" type="text" name="username" placeholder="username">
+</div>
+<div class="field">
+<input class="input" type="password" name="password" placeholder="password">
+</div>
+<div class="field">
+<input class="button" type="submit">
+</div>
+</form>
+</div>
+</div>
+</div>
+{{#if user}}
+<div class="card">
+<header class="card-header">
+<p class="card-header-title">change password</p>
+</header>
+<div class="card-content">
+<div class="content">
+<form action="/admin/password" method="POST">
+<div class="field">
+<input class="input" type="password" name="oldpassword" placeholder="current password">
+</div>
+<div class="field">
+<input class="input" type="password" name="newpassword" placeholder="new password">
+</div>
+<div class="field">
+<input class="button" type="submit">
+</div>
+</form>
+</div>
+</div>
+</div>
+{{/if}}
+{{#if is_admin}}
+<div class="card">
+<header class="card-header">
+<p class="card-header-title">create a user</p>
+</header>
+<div class="card-content">
+<div class="content">
+<form action="/admin/create" method="POST">
+<div class="field">
+<input class="input" type="text" name="username" placeholder="username">
+</div>
+<div class="field">
+<input class="input" type="password" name="password" placeholder="password">
+</div>
+<div class="field">
+<input class="button" type="submit">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="card">
+<header class="card-header">
+<p class="card-header-title">promote a user</p>
+</header>
+<div class="card-content">
+<div class="content">
+<form action="/admin/promote" method="POST">
+<div class="field">
+<div class="control">
+<div class="select">
+<select name="username">
+{{#each page.users}}
+<option value="{{this[0]}}" {{#if this[1]}}disabled{{/if}}>{{this[0]}}</option>
+{{/each}}
+</select>
+</div>
+</div>
+</div>
+<div class="field">
+<input class="button" type="submit">
+</div>
+</form>
+</div>
+</div>
+</div>
+{{/if}}
+{{/inline}}
+{{~> base}}

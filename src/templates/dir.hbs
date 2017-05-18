@@ -1,0 +1,13 @@
+{{#*inline "page"}}
+<div class="content">
+    <h1 class="is-1">{{current}}</h1>
+    <ul>
+        {{#each page.children}}
+        {{#if this[0]}}
+        <li><a href="/{{this[1]}}">{{this[0]}}</a></li>
+        {{/if}}
+        {{/each}}
+    </ul>
+</div>
+{{/inline}}
+{{~> base}}

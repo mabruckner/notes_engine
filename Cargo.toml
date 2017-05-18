@@ -1,0 +1,26 @@
+[package]
+name = "notes_engine"
+version = "0.1.0"
+authors = ["Mitchell Bruckner <mbruckner807@gmail.com>"]
+
+[features]
+watch=["handlebars-iron/watch"]
+
+[dependencies]
+iron = "0.5.*"
+hoedown = "6.0.0"
+handlebars = "0.26.*"
+handlebars-iron = "0.24.*"
+serde = "1.0.*"
+serde_json = "*"
+serde_derive = "*"
+iron-sessionstorage = "0.6.6"
+csv = "0.15.0"
+bcrypt = "0.1"
+persistent = "0.3.0"
+router = "*"
+params = "*"
+glob = "*"
+rand = "0.3.15"
+toml = "0.4"
+url = "*"

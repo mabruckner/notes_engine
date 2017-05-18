@@ -1,0 +1,4 @@
+user_path = "logins.csv"
+access_path = "access"
+base_path = "notes"
+serve = "localhost:8000"

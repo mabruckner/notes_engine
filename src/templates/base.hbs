@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" />
+<style>
+.files {
+    position: absolute;
+    border: 2px solid #ddd;
+    border-left: none;
+    z-index: 1;
+    background: #fff;
+    width: 300px;
+    left: -290px;
+    border-radius: 0px 10px 10px 0px;
+    transition: left 0.2s;
+    padding-left: 10px;
+}
+
+.files:hover {
+    left: 0px;
+}
+</style>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <p class="nav-item is-brand">Notes to Self</p>
+                </div>
+                <div class="nav-right nav-menu">
+                    {{#if user}}
+                    <a href="/admin" class="nav-item">
+                        {{user}}
+                        {{#if is_admin}}
+                        <span class="tag is-small">administrator</span>
+                        {{/if}}
+                    </a>
+                    {{/if}}
+                    {{#unless user}}
+                    <div class="nav-item">
+                        <p class="control">
+                            <a href="/admin" class="button is-primary">Login</a>
+                        </p>
+                    </div>
+                    {{/unless}}
+                </div>
+            </nav>
+        </div>
+        <div class="files">
+            <h2 class="title is-4">Index</h2>
+            <ul>
+                {{#each accessible}}
+                <li><a href="/{{this}}">{{this}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="container">
+            {{~> page}}
+        </div>
+    </body>
+</html>
